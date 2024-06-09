@@ -10,3 +10,6 @@
 
 Сравнение двух плоских файлов формата .yaml
 [![asciicast](https://asciinema.org/a/663247.svg)](https://asciinema.org/a/663247)
+
+Объединение второго объекта(file2) с первым объектом(file1)
+[![asciicast](https://asciinema.org/a/663302.svg)](https://asciinema.org/a/663302)
