@@ -18,28 +18,34 @@ function getDifferenceObjects(object1, object2) {
     const secondValue = object2[key];
     if (!_.has(object2, key)) {
       return {
-        condition: 'haveOnlyFirst',
+        condition: 'minus',
         key,
         firstValue,
       }
     }
     if (!_.has(object1, key)) {
       return {
-        condition: 'haveOnlySecond',
+        condition: 'plus',
         key,
         secondValue,
       }
     }
+    if (_.isObject(firstValue) && _.isObject(secondValue)) {
+      return {
+        condition: 'enclosure',
+        key,
+        child: getDifferenceObjects(firstValue, secondValue),
+      }
+    }
     if (firstValue !== secondValue) {
       return {
-        condition: 'haveBothUnequal',
+        condition: 'different',
         key,
         firstValue,
         secondValue,
       }
     }
     return {
-      condition: 'haveBothEqual',
       key,
       firstValue,
     };

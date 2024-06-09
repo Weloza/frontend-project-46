@@ -1,6 +1,6 @@
 import { readFile, getFileExtension, getDifferenceObjects } from "./utils.js";
 import parsing from "./parsers.js";
-import format from "./format.js";
+import getFormatting from "./formatters/format.js";
 
 function genDiff(filepath1, filepath2) {
   const dataFile1 = readFile(filepath1);
@@ -10,7 +10,7 @@ function genDiff(filepath1, filepath2) {
   const parseFile1 = parsing(dataFile1, extensionFile1);
   const parseFile2 = parsing(dataFile2, extensionFile2);
   const differenceFiles = getDifferenceObjects(parseFile1, parseFile2);
-  const formatDifference = format(differenceFiles);
+  const formatDifference = getFormatting(differenceFiles);
   return formatDifference;
 }
 
