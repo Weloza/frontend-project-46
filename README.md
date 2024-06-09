@@ -5,4 +5,8 @@
 
 ## Get difference between 2 files
 
+Сравнение двух плоских файлов формата .json
 [![asciicast](https://asciinema.org/a/663178.svg)](https://asciinema.org/a/663178)
+
+Сравнение двух плоских файлов формата .yaml
+[![asciicast](https://asciinema.org/a/663247.svg)](https://asciinema.org/a/663247)

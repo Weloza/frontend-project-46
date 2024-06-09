@@ -1,5 +1,5 @@
 import { readFile, getFileExtension, getDifferenceObjects } from "./utils.js";
-import parsing from "./parsing.js";
+import parsing from "./parsers.js";
 import format from "./format.js";
 
 function genDiff(filepath1, filepath2) {

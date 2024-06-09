@@ -9,9 +9,7 @@ function readFile(filepath) {
 }
 
 function getFileExtension(filepath) {
-  const pathArray = filepath.split('.');
-  const result = pathArray[pathArray.length - 1];
-  return result;
+  return path.extname(filepath).slice(1);
 }
 
 function getDifferenceObjects(object1, object2) {
