@@ -1,0 +1,17 @@
+name: check project
+on: push
+jobs:
+  # build – произвольно выбранное имя задания
+  # их может быть больше одного
+  build:
+    runs-on: ubuntu-latest
+    steps: # список шагов, которые надо выполнить
+      # экшен — выполняет какую-то задачу
+      # checkout — клонирует репозиторий
+      - uses: actions/checkout@v3
+      # run – произвольная bash-команда
+      - run: make install
+      - run: make lint
+      - run: npm run test
+      - run: npm test -- --coverage --coverageProvider=v8
+      
