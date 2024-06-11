@@ -5,7 +5,7 @@
     "lodash": "^4.17.21"
   },
   "name": "@hexlet/code",
-  "description": "Project Difference generation",
+  "description": "Project Difference generation between 2 files(formatter = ['stylish', 'plain', 'json']).",
   "version": "1.0.0",
   "main": "src/index.js",
   "devDependencies": {

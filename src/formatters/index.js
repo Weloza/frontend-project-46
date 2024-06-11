@@ -7,6 +7,8 @@ export default function getFormatting(differenceFiles, format = 'stylish') {
       return getStylish(differenceFiles);
     case 'plain':
       return getPlain(differenceFiles);
+    case 'json':
+      return JSON.stringify(differenceFiles);
     default: break;
   }
 }
