@@ -8,12 +8,13 @@
 
 Сompares 2 files for differences between them. 
 The following file formats are supported:
-- .json
-- .yaml/.yml
+1. .json
+2. .yaml/.yml
+
 The result of the comparison can be formatted with the following formatters:
-- 'stylish' (default)
-- 'plain'
-- 'json'
+1. 'stylish' (default)
+2. 'plain'
+3. 'json'
 
 ***Install***
 
