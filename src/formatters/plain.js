@@ -31,7 +31,7 @@ export default function getPlain(tree) {
         case 'different':
           return `Property '${completePath}' ${data.update} From ${getValue(key.firstValue)} to ${getValue(key.secondValue)}`;
         default:
-          throw new Error('Incorrect difference file');
+          break;
       }
     });
     return result.filter((n) => n !== undefined).join('\n');
