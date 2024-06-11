@@ -9,6 +9,7 @@ export default function getFormatting(differenceFiles, format = 'stylish') {
       return getPlain(differenceFiles);
     case 'json':
       return JSON.stringify(differenceFiles);
-    default: break;
+    default: 
+      throw new Error('Unknown format');
   }
 }

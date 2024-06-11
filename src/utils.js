@@ -21,21 +21,21 @@ function getDifferenceObjects(object1, object2) {
         condition: 'minus',
         key,
         firstValue,
-      }
+      };
     }
     if (!_.has(object1, key)) {
       return {
         condition: 'plus',
         key,
         secondValue,
-      }
+      };
     }
     if (_.isObject(firstValue) && _.isObject(secondValue)) {
       return {
         condition: 'enclosure',
         key,
         child: getDifferenceObjects(firstValue, secondValue),
-      }
+      };
     }
     if (firstValue !== secondValue) {
       return {
@@ -43,7 +43,7 @@ function getDifferenceObjects(object1, object2) {
         key,
         firstValue,
         secondValue,
-      }
+      };
     }
     return {
       key,

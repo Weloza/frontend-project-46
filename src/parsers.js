@@ -1,4 +1,4 @@
-import yaml from 'js-yaml'
+import yaml from 'js-yaml';
 
 function parsing(data, extension) {
   if (extension === 'json') {

@@ -18,11 +18,11 @@ function getSpace(depth, symbol) {
 }
 
 function stringify(value, depth) {
-    if (!_.isObject(value)) {
-      return `${value}`;
-    }
-    const output = Object.entries(value).map(([key, value]) => `${getSpace(depth + 1, data.tab)}${key}: ${stringify(value, depth + 1)}`);
-    return ['{', ...output, `${getSpace(depth + 1)}}`].join('\n');
+  if (!_.isObject(value)) {
+    return `${value}`;
+  }
+  const output = Object.entries(value).map(([key, valu]) => `${getSpace(depth + 1, data.tab)}${key}: ${stringify(valu, depth + 1)}`);
+  return ['{', ...output, `${getSpace(depth + 1)}}`].join('\n');
 }
 
 export default function getStylish(tree) {

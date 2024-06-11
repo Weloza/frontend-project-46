@@ -14,8 +14,8 @@ function getValue(value) {
 const data = {
   remove: 'was removed',
   add: 'was added with value: ',
-  update: 'was updated.'
-}
+  update: 'was updated.',
+};
 
 export default function getPlain(tree) {
   function iter(object, path) {
@@ -31,10 +31,10 @@ export default function getPlain(tree) {
         case 'different':
           return `Property '${completePath}' ${data.update} From ${getValue(key.firstValue)} to ${getValue(key.secondValue)}`;
         default:
-          break;
-        }
-      });
-      return result.filter((n) => n !== undefined).join('\n');
-    }
-    return iter(tree, '');
+          throw new Error('Incorrect difference file');
+      }
+    });
+    return result.filter((n) => n !== undefined).join('\n');
+  }
+  return iter(tree, '');
 }
