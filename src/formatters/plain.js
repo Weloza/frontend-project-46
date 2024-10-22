@@ -21,19 +21,16 @@ export default function getPlain(tree) {
   function iter(object, path) {
     const result = object.map((key) => {
       const completePath = `${path}${key.key}`;
-      switch (key.condition) {
-        case 'minus':
+        if (key.condition === 'minus') {
           return `Property '${completePath}' ${data.remove}`;
-        case 'plus':
+        }
+        if (key.condition === 'plus') {
           return `Property '${completePath}' ${data.add}${getValue(key.secondValue)}`;
-        case 'enclosure':
+        }
+        if (key.condition === 'enclosure') {
           return iter(key.child, `${completePath}.`);
-        case 'different':
-          return `Property '${completePath}' ${data.update} From ${getValue(key.firstValue)} to ${getValue(key.secondValue)}`;
-        default:
-          break;
-      }
-      return;
+        }
+        return `Property '${completePath}' ${data.update} From ${getValue(key.firstValue)} to ${getValue(key.secondValue)}`;
     });
     return result.filter((n) => n !== undefined).join('\n');
   }
