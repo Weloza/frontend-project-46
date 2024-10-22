@@ -7,7 +7,7 @@ function parsing(data, extension) {
   if ((extension === 'yaml') || (extension === 'yml')) {
     return yaml.load(data);
   }
-  throw new Error('Unknown file extension');
+  throw new Error(`Unknown file extension - ${extension}`);
 }
 
 export default parsing;

@@ -33,6 +33,7 @@ export default function getPlain(tree) {
         default:
           break;
       }
+      return;
     });
     return result.filter((n) => n !== undefined).join('\n');
   }
