@@ -29,6 +29,8 @@ export default function getPlain(tree) {
         return iter(key.child, `${completePath}.`);
       } else if (key.condition === 'different') {
         return `Property '${completePath}' ${data.update} From ${getValue(key.firstValue)} to ${getValue(key.secondValue)}`;
+      } else {
+        return undefined;
       }
     });
     return result.filter((n) => n !== undefined).join('\n');
