@@ -21,19 +21,21 @@ export default function getPlain(tree) {
   function iter(object, path) {
     const result = object.map((key) => {
       const completePath = `${path}${key.key}`;
-      let stringWithChanges;
+      var stringWithChanges;
       switch (key.condition) {
-        case('minus'):
+        case ('minus'):
           stringWithChanges = `Property '${completePath}' ${data.remove}`;
           break;
-        case('plus'):
+        case ('plus'):
           stringWithChanges = `Property '${completePath}' ${data.add}${getValue(key.secondValue)}`;
           break;
-        case('enclosure'):
+        case ('enclosure'):
           stringWithChanges = iter(key.child, `${completePath}.`);
           break;
-        case('different'):
+        case ('different'):
           stringWithChanges = `Property '${completePath}' ${data.update} From ${getValue(key.firstValue)} to ${getValue(key.secondValue)}`;
+          break;
+        default:
           break;
       }
       return stringWithChanges;
