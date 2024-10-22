@@ -30,7 +30,10 @@ export default function getPlain(tree) {
         if (key.condition === 'enclosure') {
           return iter(key.child, `${completePath}.`);
         }
-        return `Property '${completePath}' ${data.update} From ${getValue(key.firstValue)} to ${getValue(key.secondValue)}`;
+        if (key.condition === 'different') {
+          return `Property '${completePath}' ${data.update} From ${getValue(key.firstValue)} to ${getValue(key.secondValue)}`;
+        }
+        return key;
     });
     return result.filter((n) => n !== undefined).join('\n');
   }
